@@ -1,103 +1,257 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useRef } from "react";
+
+export default function ElevatorPage() {
+  const [lang, setLang] = useState<"uz" | "en">("uz");
+  const [currentWordIndex, setCurrentWordIndex] = useState<number | null>(null);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
+
+  const texts = {
+    uz: `NeoPersona – Prezident Tech Award Uchun Speach Ssenariy
+ Kirish
+Assalamu alaykum, hurmatli hakamlar, aziz tinglovchilar! Tasavvur qiling — siz hozir
+uchrashuvdasiz. Lekin, bu yerda yo‘qsiz. Biroq sizning ovozingiz, yuz ifodangiz, hattoki
+o‘ylash uslubingiz — bu yerda. U sizning NeoPersona kloningiz.
+ Muammo
+Bugungi tezkor dunyoda har joyda o‘zimiz bo‘la olmaymiz. Biz bandmiz — darsda,
+ishlarda, safarda, ba’zida esa ruhiy holda yo‘qmiz. Ammo inson o‘rnini hech narsa bosa
+olmaydi, to'g'rimi?
+ Yechim
+Shu sababli biz NeoPersona’ni yaratdik – bu sizning sun’iy ongli, real vaqtli raqamli
+kloningiz. NeoPersona: - Sizning ovoz ohangingizni klonlaydi - Yuzingiz va mimikangizni
+jonlantiradi - Siz kabi fikr yuritadi va eslaydi Va eng muhimi — siz bo‘lmaganingizda ham
+sizni ifodalaydi.
+ Texnologiyasi
+Ilova Web, Android va iOS uchun tayyorlangan. Foydalanuvchi: 1. Ovozini yozadi 2.
+Surat/video yuklaydi 3. O‘z odatlari haqida javob beradi Keyin esa — klon o‘rganadi,
+gapiradi, reagirlaydi va xotirasini rivojlantiradi. Bularning barchasi: - ElevenLabs va D-ID
+kabi AI xizmatlar - WebSocket asosida real vaqtli chat - Shifrlangan xotira bilan amalga
+oshadi.
+ Foyda va Kelajak
+NeoPersona: -  Siz o‘rniga uchrashuvga qatnashadi -  Esdaliklaringizni eslaydi - 
+Shaxsiy AI yordamchi bo‘ladi -  O‘zingizga maslahatchi sifatida xizmat qiladi Kelajakda
+esa kloningiz boshqa klonlar bilan gaplashadi, qaror qabul qiladi va sizning AI vakilingizga
+aylanadi.
+ Yakun
+NeoPersona bu shunchaki texnologiya emas — bu sizning raqamli uzviyligingiz. Bugungi
+tanlovda biz siz bilan bu kelajakni boshlashni istaymiz. Va esda tuting: “Siz yo‘q
+bo‘ganingizda, NeoPersona bor.” Rahmat!`,
+    en: `(English Version)\n
+
+ Introduction
+
+Hello esteemed judges, respected audience.
+
+Imagine this — you are attending a meeting right now.
+
+But... you're not actually there.
+
+Yet, your voice, your face, even your thinking style — is present.
+
+That is your NeoPersona clone.
+
+ The Problem
+
+In today's fast-paced world, we can’t always be everywhere.
+
+We’re busy — in school, at work, in travel, or sometimes, we’re just mentally exhausted.
+
+But no technology has ever been able to fully replace a human, right?
+
+ The Solution
+
+That’s why we built NeoPersona —
+
+Your real-time, AI-powered digital twin.
+
+NeoPersona:
+
+Clones your voice with your exact tone and emotion
+
+Animates your face with natural gestures
+
+Thinks like you, remembers like you
+
+And most importantly — represents you when you’re not there
+
+ The Technology
+
+The app works across Web, Android, and iOS.
+
+The user simply:
+
+Records their voice
+
+Uploads photos or videos
+
+Answers a few questions about their habits and behavior
+
+Then the clone learns, talks, reacts, and grows its memory.
+
+All powered by:
+
+AI tools like ElevenLabs, D-ID, and custom LLMs
+
+Real-time chat via WebSocket
+
+Encrypted, secure memory storage
+
+ Impact & The Future
+
+NeoPersona can:
+
+Attend meetings on your behalf
+
+Recall your memories when you forget
+
+Become your personal AI assistant
+
+Act as your decision-making advisor
+
+And in the near future, your clone will:
+
+Talk to other clones
+
+Collaborate
+
+Make decisions
+
+And become your AI ambassador
+
+ Conclusion
+
+NeoPersona is not just a technology —
+
+It is your digital continuity.
+
+Today, we invite you to start the future with us.
+
+And remember:
+
+"When you're not there… NeoPersona is."
+
+Thank you!`,
+  };
+
+  const selectedText = texts[lang];
+  const words = selectedText.split(/\s+/);
+
+  const speakText = () => {
+    // Stop if already speaking
+    if (isSpeaking) {
+      speechSynthesis.cancel();
+      setIsSpeaking(false);
+      setCurrentWordIndex(null);
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(selectedText);
+    utterance.lang = lang === "uz" ? "uz-UZ" : "en-US";
+    utterance.rate = 1;
+    setIsSpeaking(true);
+
+    utterance.onboundary = (event) => {
+      if (event.name === "word" || event.charIndex !== undefined) {
+        const { charIndex } = event;
+        const textUpToChar = selectedText.substring(0, charIndex);
+        const index = textUpToChar.trim().split(/\s+/).length - 1;
+        setCurrentWordIndex(index);
+
+        // Scroll current word into view
+        const el = wordRefs.current[index];
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+    };
+
+    utterance.onend = () => {
+      setIsSpeaking(false);
+      setCurrentWordIndex(null);
+    };
+
+    speechSynthesis.speak(utterance);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-4 py-12 flex items-center justify-center font-sans">
+      <div className="max-w-5xl w-full grid md:grid-cols-3 gap-6 items-stretch">
+        {/* Chap panel */}
+        <div className="md:col-span-1 border-r border-white/10 pr-6 flex flex-col justify-center items-start text-left">
+          <div className="w-full text-left mb-8">
+            <h1 className="text-4xl font-bold mb-2">NeoPersona</h1>
+            <p className="text-lg font-medium text-blue-400">Elevator Pitch</p>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="flex-grow flex flex-col items-start w-full">
+  <button
+    onClick={speakText}
+    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-medium"
+  >
+    {isSpeaking
+      ? lang === "uz"
+        ? "⏹ To‘xtatish"
+        : "⏹ Stop"
+      : lang === "uz"
+      ? "🚀 Ovozda o‘qish"
+      : "🚀 Speak It Aloud"}
+  </button>
+
+  {/* 🔻 Kichik ogohlantirish */}
+  <p className="text-xs text-yellow-400 mt-2">
+    {lang === "uz"
+      ? "⚠️ Biroz kuting, boshlanish sekin bo'lishi mumkin."
+      : "⚠️ Please wait, speech may start slowly."}
+  </p>
+</div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* O‘ng panel */}
+        <div className="md:col-span-2">
+          {/* Til tablari */}
+          <div className="flex space-x-2 mb-4">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-4 py-2 rounded-t-md font-medium ${
+                lang === "en"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              }`}
+            >
+              English
+            </button>
+            <button
+              onClick={() => setLang("uz")}
+              className={`px-4 py-2 rounded-t-md font-medium ${
+                lang === "uz"
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              }`}
+            >
+              O‘zbekcha
+            </button>
+          </div>
+
+          {/* Highlight matn */}
+          <div className="bg-white/5 p-6 rounded-md shadow-inner backdrop-blur-md text-lg leading-relaxed max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-transparent">
+            {words.map((word, index) => (
+              <span
+                key={index}
+                ref={(el) => (wordRefs.current[index] = el)}
+                className={`transition-all duration-100 ${
+                  index === currentWordIndex
+                    ? "bg-blue-500 text-white px-1 rounded"
+                    : ""
+                }`}
+              >
+                {word + " "}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
