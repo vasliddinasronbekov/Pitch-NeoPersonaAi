@@ -185,7 +185,7 @@ Thank you!`,
             <p className="text-lg font-medium text-blue-400">Elevator Pitch</p>
           </div>
 
-          <div className="flex-grow flex flex-col items-start w-full">
+          <div className="flex-grow flex flex-col items-start  w-full">
   <button
     onClick={speakText}
     className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-medium"
@@ -239,7 +239,9 @@ Thank you!`,
             {words.map((word, index) => (
               <span
                 key={index}
-                ref={(el) => (wordRefs.current[index] = el)}
+                ref={(el) => {
+  wordRefs.current[index] = el;
+}}
                 className={`transition-all duration-100 ${
                   index === currentWordIndex
                     ? "bg-blue-500 text-white px-1 rounded"
