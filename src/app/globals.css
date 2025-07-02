@@ -38,3 +38,17 @@ body {
   background-color: #3b82f6; /* blue-500 */
   border-radius: 9999px;
 }
+
+
+
+
+
+
+
+.image0logo{
+  position: absolute;
+  z-index: 5;
+  width: 100px;
+  height: 95px;
+  bottom: -15px;
+}

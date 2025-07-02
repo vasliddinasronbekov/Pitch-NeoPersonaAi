@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Navbar from "./Navbar";
+
 
 export default function ElevatorPage() {
   const [lang, setLang] = useState<"uz" | "en">("uz");
@@ -176,7 +178,10 @@ Thank you!`,
   };
 
   return (
+
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-4 py-12 flex items-center justify-center font-sans">
+      <Navbar />
+
       <div className="max-w-5xl w-full grid md:grid-cols-3 gap-6 items-stretch">
         {/* Chap panel */}
         <div className="md:col-span-1 border-r border-white/10 pr-6 flex flex-col justify-center items-start text-left">
