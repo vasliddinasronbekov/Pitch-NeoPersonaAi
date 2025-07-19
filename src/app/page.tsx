@@ -37,6 +37,24 @@ Shaxsiy AI yordamchi bo‘ladi -  O‘zingizga maslahatchi sifatida xizmat qilad
 esa kloningiz boshqa klonlar bilan gaplashadi, qaror qabul qiladi va sizning AI vakilingizga
 aylanadi.
  Yakun
+🧠 Muhim eslatma – SelfCloner loyihasi haqida
+Hurmatli hakamlar!
+Sizga kichik, ammo muhim bir eslatmani taqdim etmoqchimiz. Hozirgi kunda sunʼiy intellekt (AI) texnologiyalari jadal rivojlanmoqda. Biroq, siz ham yaxshi bilasizki, bunday yirik texnologik loyihalarni 0$ balans bilan to‘liq yakunlash deyarli imkonsizdir.
+SelfCloner — bu insonning ovozi, yuzi, odatlari va fikrlash tarziga asoslangan raqamli “egizak”ini yaratishga qaratilgan keng qamrovli loyiha. Bugungi kunga kelib, loyiha asosiy funksiyalari tayyorlangan bo‘lsa-da, ayrim qismlarini vaqtincha mavjud pullik AI xizmatlari yordamida ishga tushirishga majbur bo‘lmoqdamiz.
+Bizning asl niyatimiz — hech bir tashqi servisga bog‘liq bo‘lmagan, to‘liq mahalliy texnologiyalarga asoslangan, O‘zbekistonning o‘ziga xos:
+
+AI modeli,
+
+TTS (matndan ovozga aylantirish),
+
+FaceClone (yuz raqamlashtirish),
+
+VoiceClone (ovoz kloni),
+
+va MindCloner (fikr modeli)
+kabi tizimlarini nol (0) dan o‘zimiz ishlab chiqishdir.
+
+Bu loyiha nafaqat texnologik jihatdan, balki O‘zbekistonning AI sohasidagi mustaqilligini taʼminlash yo‘lida ham muhim qadamlardan biri bo‘ladi.
 NeoPersona bu shunchaki texnologiya emas — bu sizning raqamli uzviyligingiz. Bugungi
 tanlovda biz siz bilan bu kelajakni boshlashni istaymiz. Va esda tuting: “Siz yo‘q
 bo‘ganingizda, NeoPersona bor.” Rahmat!`,
@@ -123,6 +141,28 @@ Make decisions
 And become your AI ambassador
 
  Conclusion
+
+🧠 Important Note – About the SelfCloner Project
+Dear Judges,
+
+We would like to respectfully remind you of an important point. Today, AI technologies are rapidly advancing, but as you well know, it is nearly impossible to fully develop such a complex, high-level project with a $0 budget.
+
+SelfCloner is an ambitious project aimed at creating a real-time digital “twin” of a person — replicating their voice, face, behavior, and thinking patterns. While the core functionalities of our project have already been developed, we have been forced to rely on third-party paid AI services for some advanced features due to current financial constraints.
+
+However, our ultimate goal is to build everything independently, without relying on any external tools or platforms. We envision the creation of:
+
+Our own AI model,
+
+A locally developed TTS (Text-to-Speech) system,
+
+FaceClone for facial replication,
+
+VoiceClone for voice duplication,
+
+And a fully native MindCloner for simulating cognitive behavior —
+all entirely developed within Uzbekistan.
+
+We strongly believe this vision will not only demonstrate our technical capability, but also contribute to Uzbekistan's independence and leadership in the AI industry.
 
 NeoPersona is not just a technology —
 
