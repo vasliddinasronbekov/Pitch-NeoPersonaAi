@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-3">
           {/* MVP link */}
           <a
-            href="https://surfe.uz/mvp"
+            href="/mvp"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition"
@@ -25,7 +25,7 @@ export default function Navbar() {
 
           {/* Video link */}
           <a
-            href="https://surfe.uz/video"
+            href="/video"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full text-sm font-medium transition"

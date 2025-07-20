@@ -1,6 +1,6 @@
 // pages/video/index.tsx
 import React from 'react';
-import Navbar from '@/components/Navbar'; // mavjud bo‘lsa
+import Navbar from '@/app/Navbar'; // mavjud bo‘lsa
 import Head from 'next/head';
 
 export default function VideoPage() {
@@ -18,7 +18,7 @@ export default function VideoPage() {
         <div className="mt-6">
           <iframe
             className="w-full aspect-video rounded-xl shadow-xl"
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            src="https://www.youtube.com/embed/56723s"
             title="SelfCloner Video"
             allowFullScreen
           ></iframe>
