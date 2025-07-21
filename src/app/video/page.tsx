@@ -18,7 +18,7 @@ export default function VideoPage() {
         <div className="mt-6">
           <iframe
             className="w-full aspect-video rounded-xl shadow-xl"
-            src="https://www.youtube.com/embed/56723s"
+            src="https://www.youtube.com/embed/3J1YK2R5tMA"
             title="SelfCloner Video"
             allowFullScreen
           ></iframe>
