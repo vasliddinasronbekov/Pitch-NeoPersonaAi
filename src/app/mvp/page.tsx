@@ -20,9 +20,17 @@ export default function MVPPage() {
 Ba’zi texnik nosozliklar va muayyan xatoliklar tufayli ilovamizni hozircha deploy qila olmayapmiz. Buning uchun sizlardan uzr so‘raymiz.
 
 Agar ilovani sinab ko‘rmoqchi bo‘lsangiz, biz bilan bevosita bog‘laning — sizga lokal versiyasini ishga tushirgan holda ip taqdim etamiz. Yoki istasangiz, quyidagi havola orqali repo faylini yuklab olib, o‘z kompyuteringizda test qilishingiz mumkin:
+<br/>
 <hr/>
-🔗 [<a href="https://github.com/vasliddinasronbekov/SelfCloner">SelfClone(FullStack NextJs)</a>] va 🔗 [<a href="https://github.com/vasliddinasronbekov/NeoPersonaAi/">NeoPersonaAi(CrossPlatform)</a>]
+<br/>
+🔗 [<a href="https://github.com/vasliddinasronbekov/SelfCloner">SelfClone(FullStack NextJs)</a>]
+          <br/>
+                                                  va 
+<br/>
+🔗 [<a href="https://github.com/vasliddinasronbekov/NeoPersonaAi/">NeoPersonaAi(CrossPlatform)</a>]
+<br/>
 <hr/>
+<br/>
 Yana bir bor uzr so‘raymiz va sizning sabringiz uchun katta rahmat!
 
 Hurmat bilan,
