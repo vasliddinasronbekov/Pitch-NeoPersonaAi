@@ -40,7 +40,7 @@ Hurmat bilan,
 </h1>
 <p>+998 93 404 3024 || <a href="https://t.me/Vasliddin_Asronbekov">Telegram</a></p>
         {/* You can add images, demo components, or video links */}
-        &copy AWDS.UZ
+        <p>&copy; 2019-2025 AWDS.UZ<p/>
       </main>
     </>
   );
