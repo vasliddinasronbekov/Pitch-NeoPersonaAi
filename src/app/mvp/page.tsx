@@ -20,9 +20,9 @@ export default function MVPPage() {
 Ba’zi texnik nosozliklar va muayyan xatoliklar tufayli ilovamizni hozircha deploy qila olmayapmiz. Buning uchun sizlardan uzr so‘raymiz.
 
 Agar ilovani sinab ko‘rmoqchi bo‘lsangiz, biz bilan bevosita bog‘laning — sizga lokal versiyasini ishga tushirgan holda ip taqdim etamiz. Yoki istasangiz, quyidagi havola orqali repo faylini yuklab olib, o‘z kompyuteringizda test qilishingiz mumkin:
-
-🔗 [https://github.com/vasliddinasronbekov/SelfCloner]
-
+<hr/>
+🔗 [<a href="https://github.com/vasliddinasronbekov/SelfCloner">SelfClone(FullStack NextJs)</a>] va 🔗 [<a href="https://github.com/vasliddinasronbekov/NeoPersonaAi/">NeoPersonaAi(CrossPlatform)</a>]
+<hr/>
 Yana bir bor uzr so‘raymiz va sizning sabringiz uchun katta rahmat!
 
 Hurmat bilan,
@@ -31,6 +31,7 @@ Hurmat bilan,
 </h1>
 <p>+998 93 404 3024 || <a href="https://t.me/Vasliddin_Asronbekov">Telegram</a></p>
         {/* You can add images, demo components, or video links */}
+        &copy AWDS.UZ
       </main>
     </>
   );
