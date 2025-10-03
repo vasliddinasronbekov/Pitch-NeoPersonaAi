@@ -31,6 +31,7 @@ Agar ilovani sinab ko‘rmoqchi bo‘lsangiz, biz bilan bevosita bog‘laning �
           <br/>
 <br/>
 <hr/>
+          <br/>
 <br/>
 Yana bir bor uzr so‘raymiz va sizning sabringiz uchun katta rahmat!
 
@@ -40,7 +41,7 @@ Hurmat bilan,
 </h1>
 <p>+998 93 404 3024 || <a href="https://t.me/Vasliddin_Asronbekov">Telegram</a></p>
         {/* You can add images, demo components, or video links */}
-        <p>&copy; 2019-2025 AWDS.UZ<p/>
+        <p>&copy; 2019-2025 AWDS.UZ</p>
       </main>
     </>
   );
