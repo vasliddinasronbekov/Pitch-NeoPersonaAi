@@ -28,6 +28,7 @@ Agar ilovani sinab ko‘rmoqchi bo‘lsangiz, biz bilan bevosita bog‘laning �
                                                   va 
 <br/>
 🔗 [<a href="https://github.com/vasliddinasronbekov/NeoPersonaAi/">NeoPersonaAi(CrossPlatform)</a>]
+          <br/>
 <br/>
 <hr/>
 <br/>
