@@ -21,6 +21,7 @@ Ba’zi texnik nosozliklar va muayyan xatoliklar tufayli ilovamizni hozircha dep
 
 Agar ilovani sinab ko‘rmoqchi bo‘lsangiz, biz bilan bevosita bog‘laning — sizga lokal versiyasini ishga tushirgan holda ip taqdim etamiz. Yoki istasangiz, quyidagi havola orqali repo faylini yuklab olib, o‘z kompyuteringizda test qilishingiz mumkin:
 <br/>
+          <br/>
 <hr/>
 <br/>
 🔗 [<a href="https://github.com/vasliddinasronbekov/SelfCloner">SelfClone(FullStack NextJs)</a>]
@@ -31,7 +32,6 @@ Agar ilovani sinab ko‘rmoqchi bo‘lsangiz, biz bilan bevosita bog‘laning �
           <br/>
 <br/>
 <hr/>
-          <br/>
 <br/>
 Yana bir bor uzr so‘raymiz va sizning sabringiz uchun katta rahmat!
 
